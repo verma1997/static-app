@@ -10,11 +10,6 @@ pipeline {
       steps {
         echo 'Building Stage'
       }
-      post {
-        always {
-          jiraSendBuildInfo site: 'priyanshuverma.atlassian.net'
-        }
-      }
     }
     stage('Deploy') {
       steps {
