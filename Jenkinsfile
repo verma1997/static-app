@@ -8,7 +8,7 @@ node {
     echo transitions.data.toString()
   }
   
-  stage('Finish'){
+  stage('Finish Stage'){
     echo 'Pipeline terminated successfully'
   }
 }
