@@ -2,14 +2,12 @@ node {
   stage('Stage-1'){
     echo 'Pipelien has been triggered successfully'
   }
-  stage('JIRA - Adding Comment to Issue') {
-    withEnv(['JIRA_SITE=JIRA']) {
-      def comment = [ 
-        body: 'This is a sample comment.' 
-      ]
-      jiraAddComment idOrKey: 'DEM-5', input: comment
-    }
+  
+  stage('Get Current Transition State'){
+    def transitions = jiraGetIssueTransitions idOrKey: 'DEM-5', site: 'JIRA'
+    echo transitions.data.toString()
   }
+  
   stage('Finish'){
     echo 'Pipeline terminated successfully'
   }
