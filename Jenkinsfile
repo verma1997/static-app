@@ -7,9 +7,10 @@ node {
       def comment = [ 
         body: 'This is a sample comment.' 
       ]
-      jiraAddComment idOrKey: 'DEM-2', input: comment
+      jiraAddComment idOrKey: 'DEM-5', input: comment
     }
   }
   stage('Finish'){
     echo 'Pipeline terminated successfully'
+  }
 }
