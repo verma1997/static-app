@@ -1,6 +1,4 @@
 # static-app
 
-change
-
 
 
