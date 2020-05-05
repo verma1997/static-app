@@ -2,6 +2,14 @@ node {
   stage('Stage-1'){
     echo 'Pipelien has been triggered successfully'
   }
+  
+  stage('JIRA - Get Transitions Issue'){
+    withEnv(['JIRA_SITE=JIRA-apigate']) {
+        def transitions = jiraGetIssueTransitions idOrKey: 'DEM-1'
+        echo transitions.data.toString()
+    }
+  }
+
 //   stage('JIRA - Change the Status') {
 //     withEnv(['JIRA_SITE=JIRA']) {
 //       def transitionInput = [transition: [id: 31]]
@@ -16,6 +24,7 @@ node {
 //       jiraAddComment idOrKey: 'DEM-5', input: comment
 //     }
 //   }
+
   stage('Finish Stage'){
     echo 'Pipeline terminated successfully'
   }
